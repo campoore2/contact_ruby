@@ -80,4 +80,12 @@ describe('Contact') do
       expect(test_contact.phone_number()).to(eq([test_phone_number]))
     end
   end
+
+  describe('#id') do
+    it 'returns the id of the contact' do
+      test_contact = Contact.new({:first_name=> 'Caleb', :last_name=> 'Stokka', :job_title=> 'CEO', :company=> 'China Construction Bank'})
+      test_contact.save()
+      expect(test_contact.id()).to(eq(1))
+    end
+  end
 end
