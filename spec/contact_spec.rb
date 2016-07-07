@@ -1,5 +1,7 @@
 require('rspec')
 require('contact')
+require('email_address')
+require('mailing_address')
 
 describe('Contact') do
   describe('#first_name') do
@@ -30,5 +32,24 @@ describe('Contact') do
     end
   end
 
-  
+  describe('#mailing_address') do
+    it 'returns the mailing address of the contact' do
+      test_contact = Contact.new({:first_name=> 'Caleb', :last_name=> 'Stokka', :job_title=> 'CEO', :company=> 'China Construction Bank', :phone_number=> '86-232-543-3982-00'})
+      expect(test_contact.mailing_address()).to(eq([]))
+    end
+  end
+
+  describe('#phone_number') do
+    it 'returns the phone number of the contact' do
+      test_contact = Contact.new({:first_name=> 'Caleb', :last_name=> 'Stokka', :job_title=> 'CEO', :company=> 'China Construction Bank'})
+      expect(test_contact.phone_number()).to(eq([]))
+    end
+  end
+
+  describe('#email_addresses') do
+    it 'initially returns empty array of email addresses for contact' do
+      test_contact = Contact.new({:first_name=> 'Caleb', :last_name=> 'Stokka', :job_title=> 'CEO', :company=> 'China Construction Bank', :mailing_address=> 'Beijing', :phone_number=> '86-232-543-3982-00'})
+      expect(test_contact.email_address()).to(eq([]))
+    end
+  end
 end

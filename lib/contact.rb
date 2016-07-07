@@ -8,8 +8,12 @@ class Contact
     @last_name = identifiers.fetch(:last_name)
     @job_title = identifiers.fetch(:job_title)
     @company = identifiers.fetch(:company)
-    @mailing_address = identifiers.fetch(:mailing_address)
-    @phone_number = identifiers.fetch(:phone_number)
-    @email_address = identifiers.fetch(:email_address)
+    @mailing_address = []
+    @phone_number = []
+    @email_address = []
+  end
+
+  define_method(:add_email_address) do |email_address|
+    @email_address.push(email_address)
   end
 end
